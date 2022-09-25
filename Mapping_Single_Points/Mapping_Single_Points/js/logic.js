@@ -2,7 +2,7 @@
 console.log("working");
 
 // Add a marker to a map for Los Angles, California
-let marker = L.marker([34.0522, -118.2437]).addTo(map);
+let marker = L.marker([34.0522, -118.2437]).addTo(myMap);
 
 // We create the tile layer that will be the background of our map.
 let streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -14,4 +14,4 @@ let streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{
     accessToken: API_KEY
 });
 // Then we add our 'graymap' tile layer to the map.
-streets.addTo(map);
+streets.addTo(myMap);
