@@ -29,7 +29,15 @@ let baseMaps = {
 
 // Pass out map layers into our layer control and add the layer control to the map.
 L.control.layers(baseMaps).addTo(map);
-
+// Creating a GeoJSON layer with the retrieved data.0
+L.geoJson(data, {
+  pointToLayer: function(feature, latlng) {
+      console.log(data);
+      return L.marker(latlng);
+  },
+  style: styleInfo
+  }).addTo(map);
+  
 // Retrieve the earthquake GeoJSON data.
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(function styleInfo(feature) {
     return {
@@ -48,15 +56,6 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
       return 1;
     }
     return magnitude * 4;
-  }
+  } 
 
- 
-// Creating a GeoJSON layer with the retrieved data.0
-L.geoJson(data, {
-pointToLayer: function(feature, latlng) {
-    console.log(data);
-    return L.marker(latlng);
-},
-style: styleInfo
-}).addTo(map);
 });
