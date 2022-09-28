@@ -28,7 +28,7 @@ let baseMaps = {
   });
 
 // Pass out map layers into our layer control and add the layer control to the map.
-L.control,layers(baseMaps).addTo(map);
+L.control.layers(baseMaps).addTo(map);
 
 // Retrieve the earthquake GeoJSON data.
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(function(data) {
