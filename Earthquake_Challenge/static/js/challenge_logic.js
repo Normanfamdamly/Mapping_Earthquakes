@@ -146,9 +146,9 @@ legend.onAdd = function() {
   d3.json(tectonicData).then(function(data) {
     console.log(data)
 
-    l.geoJson(data, {
+    L.geoJson(data, {
       color: "purple",
-      weight: 3
+      weight: 2
 
     }).addTo(tectonicPlates);
     tectonicPlates.addTo(map);
